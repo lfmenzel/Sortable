@@ -265,6 +265,7 @@
 				originalTarget = target,
 				filter = options.filter;
 
+			evt.stopPropagation();
 
 			if (type === 'mousedown' && evt.button !== 0 || options.disabled) {
 				return; // only left button or enabled
@@ -784,6 +785,9 @@
 
 							// Remove event
 							_dispatchEvent(this, rootEl, 'remove', dragEl, rootEl, oldIndex, newIndex);
+
+							//Remove DOM, let the handlers take care of it
+							dragEl && dragEl.parentNode.removeChild(dragEl);
 						}
 					}
 					else {
