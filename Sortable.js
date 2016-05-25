@@ -787,7 +787,7 @@
 							_dispatchEvent(this, rootEl, 'remove', dragEl, rootEl, oldIndex, newIndex);
 
 							//Remove DOM, let the handlers take care of it
-							dragEl && dragEl.parentNode.removeChild(dragEl);
+							dragEl && dragEl.parentNode && dragEl.parentNode.removeChild(dragEl);
 						}
 					}
 					else {
