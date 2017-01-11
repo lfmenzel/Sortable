@@ -23,7 +23,7 @@
 	}
 })(function () {
 	"use strict";
-	
+
 	if (typeof window == "undefined" || typeof window.document == "undefined") {
 		return function() {
 			throw new Error( "Sortable.js requires a window with a document" );
@@ -265,8 +265,6 @@
 				originalTarget = target,
 				filter = options.filter;
 
-			evt.stopPropagation();
-
 			if (type === 'mousedown' && evt.button !== 0 || options.disabled) {
 				return; // only left button or enabled
 			}
@@ -309,6 +307,7 @@
 				return;
 			}
 
+			evt.stopPropagation();
 
 			// Prepare `dragstart`
 			this._prepareDragStart(evt, touch, target);
